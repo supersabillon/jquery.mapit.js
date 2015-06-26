@@ -1,5 +1,10 @@
 (function($){
 	'use strict';
 
-	console.log('jquery mapit plugin');
-}(jQuery))
+	$.fn.mapit = function() {
+	  	return this.each(function() {
+	  	  console.log($(this).html());
+	  	});
+	}
+	
+}(jQuery));
