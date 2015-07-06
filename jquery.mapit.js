@@ -5,20 +5,44 @@
 
 		var $mapIt = this;
 
-	  	return this.each(function() {
-	  	  	createOverlays();
-	  	  	createWrappers();
+	  	return $mapIt.each(function(index, element) {
+	  		createOverlays(index);
+	  		createWrappers(index);
+	  		
+	  		$(this).on('click', clickHandler);
+
 	  	});
 
 
-	  	function createWrappers() {
-	  		$mapIt.wrap("<a href='#'></a>")
+	  	function clickHandler(e) {
+	  		e.preventDefault();
+	  		var target = e.currentTarget.parentElement.className,
+	  			index = target.slice(-1);
+
+	  		$('.overlay' + index).show().css({
+	  			'position' : 'fixed',
+	  			'width' : 400 + 'px',
+	  			'height' : 300 + 'px',
+	  			'left' : 50 + '%',
+	  			'top' : 50 + '%',
+	  			'margin-top' : '-' + 150 + 'px',
+	  			'margin-left' : '-' + 200 + 'px',
+	  			'z-index' : 10,
+	  			'outline' : '9999px solid rgba(0,0,0,0.5)'
+	  		});
+	  		
 	  	}
 
-	  	function createOverlays(){
-	  		var overlay = document.createElement("div");
+	  	function createWrappers(index) {
+	  		$($mapIt[index]).wrap("<a href='#' class='mapit" + index + "'></a>")
+	  	}
 
-	  			$(overlay).addClass('overlay').css("display", "none");
+
+	  	function createOverlays(index){
+	  		var doc = document,
+	  			overlay = doc.createElement("div");
+
+	  		$(overlay).addClass('overlay' + index).css("display", "none");
 
 	  		doc.body.appendChild(overlay);
 	  	}
