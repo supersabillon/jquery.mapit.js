@@ -15,9 +15,11 @@
 
 
 	  	function clickHandler(e) {
-	  		e.preventDefault();
+	  		
 	  		var target = e.currentTarget.parentElement.className,
 	  			index = target.slice(-1);
+
+	  		e.preventDefault();
 
 	  		$('.overlay' + index).show().css({
 	  			'position' : 'fixed',
