@@ -21,7 +21,26 @@
 
 	  		e.preventDefault();
 
-	  		$('.overlay' + index).show().css({
+	  		$('.overlay' + index).show()
+	  			.find('span').on('click', function(){
+	  				$(this).parent().hide();
+	  		})
+	  		
+	  	}
+
+	  	function createWrappers(index) {
+	  		$($mapIt[index]).wrap("<a href='#' class='mapit" + index + "'></a>");
+	  	}
+
+
+	  	function createOverlays(index){
+	  		var doc = document,
+	  			overlay = doc.createElement("div"),
+	  			close = doc.createElement("span"),
+	  			closeCopy = doc.createTextNode("x");
+
+	  		$(overlay).addClass('overlay' + index).css({
+	  			'display': 'none',
 	  			'position' : 'fixed',
 	  			'width' : 400 + 'px',
 	  			'height' : 300 + 'px',
@@ -32,20 +51,25 @@
 	  			'z-index' : 10,
 	  			'outline' : '9999px solid rgba(0,0,0,0.5)'
 	  		});
-	  		
-	  	}
 
-	  	function createWrappers(index) {
-	  		$($mapIt[index]).wrap("<a href='#' class='mapit" + index + "'></a>")
-	  	}
+	  		$(close).css({
+	  			'position' : 'absolute',
+	  			'top' : '-' + 10 + 'px',
+	  			'right' : '-'  + 10 + 'px',
+	  			'display' : 'block',
+	  			'width' : 25 + 'px',
+	  			'line-height' : 25 + 'px',
+	  			'cursor' : 'pointer',
+	  			'background-color' : 'black',
+	  			'color' : '#fff',
+	  			'border' : '1px solid #fff',
+	  			'text-align' : 'center',
+	  			'border-radius' : 50 + '%',
+	  			'box-shadow' : '1px 1px 2px 0 rgba(0, 0, 0, 0.4)'
+	  		});
 
-
-	  	function createOverlays(index){
-	  		var doc = document,
-	  			overlay = doc.createElement("div");
-
-	  		$(overlay).addClass('overlay' + index).css("display", "none");
-
+	  		close.appendChild(closeCopy);
+	  		overlay.appendChild(close);
 	  		doc.body.appendChild(overlay);
 	  	}
 
