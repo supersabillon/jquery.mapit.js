@@ -4,7 +4,8 @@
 	$.fn.mapit = function() {
 
 		var $mapIt = this;
-
+		$.getScript('http://maps.googleapis.com/maps/api/js');
+		
 	  	return $mapIt.each(function(index, element) {
 	  		createOverlays(index);
 	  		createWrappers(index);
