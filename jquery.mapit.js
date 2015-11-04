@@ -25,8 +25,31 @@
 	  		$('#overlay' + index).show()
 	  			.find('span').on('click', function(){
 	  				$(this).parent().hide();
-	  		})
+	  		});
+
+	  		initMap(this);
 	  		
+	  	}
+
+	  	function initMap(el) {
+	  		var latlng = $(el).data('latlng').split(","),
+	  			latitude = latlng[0],
+	  			longitude = latlng[1],
+	  			mapProp = null;
+
+	  		mapProp = {
+	  		  center:new google.maps.LatLng(parseInt(latitude), parseInt(longitude)),
+	  		  zoom: 7,
+	  		  mapTypeId: google.maps.MapTypeId.ROADMAP
+	  		};
+
+	  		createMap(mapProp);
+
+	  	}
+
+
+	  	function createMap(props) {
+	  		var map = new google.maps.Map(document.getElementById('overlay0'), props);
 	  	}
 
 	  	function createWrappers(index) {
