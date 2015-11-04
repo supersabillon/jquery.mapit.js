@@ -5,7 +5,7 @@
 
 		var $mapIt = this;
 		$.getScript('http://maps.googleapis.com/maps/api/js');
-		
+
 	  	return $mapIt.each(function(index, element) {
 	  		createOverlays(index);
 	  		createWrappers(index);
@@ -22,7 +22,7 @@
 
 	  		e.preventDefault();
 
-	  		$('.overlay' + index).show()
+	  		$('#overlay' + index).show()
 	  			.find('span').on('click', function(){
 	  				$(this).parent().hide();
 	  		})
@@ -40,7 +40,7 @@
 	  			close = doc.createElement("span"),
 	  			closeCopy = doc.createTextNode("x");
 
-	  		$(overlay).addClass('overlay' + index).css({
+	  		$(overlay).attr('id', 'overlay' + index).css({
 	  			'display': 'none',
 	  			'position' : 'fixed',
 	  			'width' : 400 + 'px',
