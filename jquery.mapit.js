@@ -6,8 +6,10 @@
 		var $mapIt = this;
 		$.getScript('http://maps.googleapis.com/maps/api/js');
 
+		//create overlay div to insert maps
+		createOverlay();
+
 	  	return $mapIt.each(function(index, element) {
-	  		createOverlays(index);
 	  		createWrappers(index);
 	  		
 	  		$(this).on('click', clickHandler);
@@ -17,12 +19,11 @@
 
 	  	function clickHandler(e) {
 	  		
-	  		var target = e.currentTarget.parentElement.className,
-	  			index = target.slice(-1);
+	  		var target = e.currentTarget.parentElement.className;
 
 	  		e.preventDefault();
 
-	  		$('#overlay' + index).show()
+	  		$('#mapit-overlay').show()
 	  			.find('span').on('click', function(){
 	  				$(this).parent().hide();
 	  		});
@@ -49,7 +50,7 @@
 
 
 	  	function createMap(props) {
-	  		var map = new google.maps.Map(document.getElementById('overlay0'), props);
+	  		var map = new google.maps.Map(document.getElementById('mapit-overlay'), props);
 	  	}
 
 	  	function createWrappers(index) {
@@ -57,13 +58,13 @@
 	  	}
 
 
-	  	function createOverlays(index){
+	  	function createOverlay(){
 	  		var doc = document,
 	  			overlay = doc.createElement("div"),
 	  			close = doc.createElement("span"),
 	  			closeCopy = doc.createTextNode("x");
 
-	  		$(overlay).attr('id', 'overlay' + index).css({
+	  		$(overlay).attr('id', 'mapit-overlay' + index).css({
 	  			'display': 'none',
 	  			'position' : 'fixed',
 	  			'width' : 400 + 'px',
