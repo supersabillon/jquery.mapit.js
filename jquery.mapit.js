@@ -50,7 +50,7 @@
 
 
 	  	function createMap(props) {
-	  		var map = new google.maps.Map(document.getElementById('mapit-overlay'), props);
+	  		var map = new google.maps.Map(document.getElementById('mapit-wrapper'), props);
 	  	}
 
 	  	function createWrappers(index) {
@@ -62,19 +62,24 @@
 	  		var doc = document,
 	  			overlay = doc.createElement("div"),
 	  			close = doc.createElement("span"),
-	  			closeCopy = doc.createTextNode("x");
+	  			closeCopy = doc.createTextNode("x"),
+			  	mapContainer = doc.createElement('div');
 
 	  		$(overlay).attr('id', 'mapit-overlay' + index).css({
 	  			'display': 'none',
 	  			'position' : 'fixed',
-	  			'width' : 400 + 'px',
-	  			'height' : 300 + 'px',
 	  			'left' : 50 + '%',
 	  			'top' : 50 + '%',
 	  			'margin-top' : '-' + 150 + 'px',
 	  			'margin-left' : '-' + 200 + 'px',
 	  			'z-index' : 10,
 	  			'outline' : '9999px solid rgba(0,0,0,0.5)'
+	  		});
+
+
+	  		$(mapContainer).attr('id', 'mapit-wrapper').css({
+	  			'width' : 400 + 'px',
+	  			'height' : 300 + 'px'
 	  		});
 
 	  		$(close).css({
@@ -90,12 +95,15 @@
 	  			'border' : '1px solid #fff',
 	  			'text-align' : 'center',
 	  			'border-radius' : 50 + '%',
-	  			'box-shadow' : '1px 1px 2px 0 rgba(0, 0, 0, 0.4)'
+	  			'box-shadow' : '1px 1px 2px 0 rgba(0, 0, 0, 0.4)',
+	  			'z-index' : 1001
 	  		});
 
 	  		close.appendChild(closeCopy);
 	  		overlay.appendChild(close);
+	  		overlay.appendChild(mapContainer);
 	  		doc.body.appendChild(overlay);
+
 	  	}
 
 	}
