@@ -40,7 +40,7 @@
 
 	  		mapProp = {
 	  		  center:new google.maps.LatLng(parseInt(latitude), parseInt(longitude)),
-	  		  zoom: 7,
+	  		  zoom: 12,
 	  		  mapTypeId: google.maps.MapTypeId.ROADMAP
 	  		};
 
@@ -73,7 +73,7 @@
 	  			'margin-top' : '-' + 150 + 'px',
 	  			'margin-left' : '-' + 200 + 'px',
 	  			'z-index' : 10,
-	  			'outline' : '9999px solid rgba(0,0,0,0.5)'
+	  			'outline' : '9999px solid rgba(0,0,0,0.7)'
 	  		});
 
 
@@ -83,12 +83,13 @@
 	  		});
 
 	  		$(close).css({
+	  			'font-family' : 'Arial',
 	  			'position' : 'absolute',
 	  			'top' : '-' + 10 + 'px',
 	  			'right' : '-'  + 10 + 'px',
 	  			'display' : 'block',
 	  			'width' : 25 + 'px',
-	  			'line-height' : 25 + 'px',
+	  			'line-height' : 26 + 'px',
 	  			'cursor' : 'pointer',
 	  			'background-color' : 'black',
 	  			'color' : '#fff',
