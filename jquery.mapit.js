@@ -1,9 +1,13 @@
 (function($){
 	'use strict';
 
-	$.fn.mapit = function() {
+	$.fn.mapit = function(options) {
 
 		var $mapIt = this;
+		var settings = $.extend({
+			zoom: 12,
+			mapTypeId: 'google.maps.MapTypeId.ROADMAP'
+		});
 		$.getScript('http://maps.googleapis.com/maps/api/js');
 
 		//create overlay div to insert maps
@@ -11,14 +15,14 @@
 
 	  	return $mapIt.each(function(index, element) {
 	  		createWrappers(index);
-	  		
+
 	  		$(this).on('click', clickHandler);
 
 	  	});
 
 
 	  	function clickHandler(e) {
-	  		
+
 	  		var target = e.currentTarget.parentElement.className;
 
 	  		e.preventDefault();
@@ -29,7 +33,7 @@
 	  		});
 
 	  		initMap(this);
-	  		
+
 	  	}
 
 	  	function initMap(el) {
@@ -40,8 +44,8 @@
 
 	  		mapProp = {
 	  		  center:new google.maps.LatLng(parseInt(latitude), parseInt(longitude)),
-	  		  zoom: 12,
-	  		  mapTypeId: google.maps.MapTypeId.ROADMAP
+	  		  zoom: settings.zoom,
+	  		  mapTypeId: settings.mapTypeId
 	  		};
 
 	  		createMap(mapProp);
@@ -108,5 +112,5 @@
 	  	}
 
 	}
-	
+
 }(jQuery));
