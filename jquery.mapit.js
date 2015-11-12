@@ -5,10 +5,16 @@
 
 		var defaults = {
 			zoom: 12,
-			mapTypeId: 'google.maps.MapTypeId.ROADMAP'
+			mapTypeId: 'google.maps.MapTypeId.ROADMAP',
+			overlayAttrs: {
+				id: 'mapit-overlay'
+			},
+			mapContainerAttrs: {
+				id: 'mapit-wrapper'
+			}
 		};
 
-		var settings = $.extend({}, defaults, options);
+		var settings = $.extend(true, {}, defaults, options);
 
 		//load Google API
 		$.getScript('http://maps.googleapis.com/maps/api/js');
@@ -22,7 +28,6 @@
 	  		$(this).on('click', clickHandler);
 
 	  	});
-
 
 	  	function clickHandler(e) {
 
@@ -55,41 +60,35 @@
 
 	  	}
 
-
 	  	function createMap(props) {
-	  		var map = new google.maps.Map(document.getElementById('mapit-wrapper'), props);
+	  		var map = new google.maps.Map(document.getElementById(settings.mapContainerAttrs.id), props);
 	  	}
 
 	  	function createWrappers(index) {
 	  		$(this[index]).wrap("<a href='#' class='mapit" + index + "'></a>");
 	  	}
 
-
 	  	function createOverlay(){
-	  		var doc = document,
-	  			overlay = doc.createElement("div"),
-	  			close = doc.createElement("span"),
-	  			closeCopy = doc.createTextNode("x"),
-			  	mapContainer = doc.createElement('div');
 
-	  		$(overlay).attr('id', 'mapit-overlay' + index).css({
-	  			'display': 'none',
-	  			'position' : 'fixed',
-	  			'left' : 50 + '%',
-	  			'top' : 50 + '%',
-	  			'margin-top' : '-' + 150 + 'px',
-	  			'margin-left' : '-' + 200 + 'px',
-	  			'z-index' : 10,
-	  			'outline' : '9999px solid rgba(0,0,0,0.7)'
-	  		});
+			  var overlay = $('<div />')
+			  	.attr(settings.overlayAttrs + index).css({
+		  			'display': 'none',
+		  			'position' : 'fixed',
+		  			'left' : 50 + '%',
+		  			'top' : 50 + '%',
+		  			'margin-top' : '-' + 150 + 'px',
+		  			'margin-left' : '-' + 200 + 'px',
+		  			'z-index' : 10,
+		  			'outline' : '9999px solid rgba(0,0,0,0.7)'
+		  		});
 
+			  var mapContainer = $('<div />')
+				  .attr(settings.mapContainerAttrs).css({
+		  			'width' : 400 + 'px',
+		  			'height' : 300 + 'px'
+		  		});
 
-	  		$(mapContainer).attr('id', 'mapit-wrapper').css({
-	  			'width' : 400 + 'px',
-	  			'height' : 300 + 'px'
-	  		});
-
-	  		$(close).css({
+				var close = $('<span />').css({
 	  			'font-family' : 'Arial',
 	  			'position' : 'absolute',
 	  			'top' : '-' + 10 + 'px',
@@ -105,9 +104,9 @@
 	  			'border-radius' : 50 + '%',
 	  			'box-shadow' : '1px 1px 2px 0 rgba(0, 0, 0, 0.4)',
 	  			'z-index' : 1001
-	  		});
+	  		})
+	  		.append(document.createTextNode("x"));
 
-	  		close.appendChild(closeCopy);
 	  		overlay.appendChild(close);
 	  		overlay.appendChild(mapContainer);
 	  		doc.body.appendChild(overlay);
