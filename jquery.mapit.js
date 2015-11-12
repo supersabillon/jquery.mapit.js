@@ -3,17 +3,20 @@
 
 	$.fn.mapit = function(options) {
 
-		var $mapIt = this;
-		var settings = $.extend({
+		var defaults = {
 			zoom: 12,
 			mapTypeId: 'google.maps.MapTypeId.ROADMAP'
-		});
+		};
+
+		var settings = $.extend({}, defaults, options);
+
+		//load Google API
 		$.getScript('http://maps.googleapis.com/maps/api/js');
 
 		//create overlay div to insert maps
 		createOverlay();
 
-	  	return $mapIt.each(function(index, element) {
+	  	return this.each(function(index, element) {
 	  		createWrappers(index);
 
 	  		$(this).on('click', clickHandler);
@@ -58,7 +61,7 @@
 	  	}
 
 	  	function createWrappers(index) {
-	  		$($mapIt[index]).wrap("<a href='#' class='mapit" + index + "'></a>");
+	  		$(this[index]).wrap("<a href='#' class='mapit" + index + "'></a>");
 	  	}
 
 
