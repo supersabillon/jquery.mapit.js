@@ -109,7 +109,7 @@
 
 	  		overlay.appendChild(close);
 	  		overlay.appendChild(mapContainer);
-	  		doc.body.appendChild(overlay);
+	  		document.body.appendChild(overlay);
 
 	  	}
 
