@@ -3,11 +3,16 @@
 
 	$.fn.mapit = function(options) {
 
+		//load Google API
+		$.getScript('http://maps.googleapis.com/maps/api/js');
+
 		var defaults = {
 			width: 400,
 			height: 300,
-			zoom: 12,
-			mapTypeId: 'google.maps.MapTypeId.ROADMAP',
+			mapOptions: {
+				zoom: 5,
+				mapTypeId: 'ROADMAP',
+			},
 			overlayAttrs: {
 				id: 'mapit-overlay'
 			},
@@ -45,14 +50,12 @@
 
 		var settings = $.extend(true, {}, defaults, options);
 
-		//load Google API
-		$.getScript('http://maps.googleapis.com/maps/api/js');
 
 		//create overlay div to insert maps
 		createOverlay();
 
 	  	return this.each(function(index, element) {
-	  		createWrappers(index);
+	  		createWrappers.call(this, index);
 
 	  		$(this).on('click', clickHandler);
 
@@ -64,7 +67,7 @@
 
 	  		e.preventDefault();
 
-	  		$('#mapit-overlay').show()
+	  		$('#' + settings.overlayAttrs.id).show()
 	  			.find('span').on('click', function(){
 	  				$(this).parent().hide();
 	  		});
@@ -75,14 +78,28 @@
 
 	  	function initMap(el) {
 	  		var latlng = $(el).data('latlng').split(","),
-	  			latitude = latlng[0],
-	  			longitude = latlng[1],
-	  			mapProp = null;
+	  			myLatlng = new google.maps.LatLng(parseInt(latlng[0]), parseInt(latlng[1])),
+	  			mapProp = null,
+	  			mapType;
+
+	  		switch (settings.mapOptions.mapTypeId.toLowerCase()) {
+	  			case 'satellite':
+	  				mapType = google.maps.MapTypeId.SATELLITE;
+	  				break;
+	  			case 'hybrid':
+	  				mapType = google.maps.MapTypeId.HYBRID;
+	  				break;
+	  			case 'terrain':
+	  				mapType = google.maps.MapTypeId.TERRAIN;
+	  				break;
+	  			default:
+	  				mapType = google.maps.MapTypeId.ROADMAP;
+	  		}
 
 	  		mapProp = {
-	  		  center:new google.maps.LatLng(parseInt(latitude), parseInt(longitude)),
-	  		  zoom: settings.zoom,
-	  		  mapTypeId: settings.mapTypeId
+	  		  center: myLatlng,
+	  		  zoom: settings.mapOptions.zoom,
+	  		  mapTypeId: mapType
 	  		};
 
 	  		createMap(mapProp);
@@ -94,7 +111,7 @@
 	  	}
 
 	  	function createWrappers(index) {
-	  		$(this[index]).wrap("<a href='#' class='mapit" + index + "'></a>");
+	  		$(this).wrap("<a href='#' class='mapit" + index + "'></a>");
 	  	}
 
 	  	function createOverlay(){
