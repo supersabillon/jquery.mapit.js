@@ -6,12 +6,13 @@
 		//load Google API
 		$.getScript('http://maps.googleapis.com/maps/api/js');
 
+		//defaults
 		var defaults = {
 			width: 400,
 			height: 300,
 			mapOptions: {
 				zoom: 5,
-				mapTypeId: 'ROADMAP',
+				mapType: 'ROADMAP',
 			},
 			overlayAttrs: {
 				id: 'mapit-overlay'
@@ -23,7 +24,7 @@
 				'top' : 50 + '%',
 				'margin-top' : '-' + 150 + 'px',
 				'margin-left' : '-' + 200 + 'px',
-				'z-index' : 10,
+				'z-index' : 1000,
 				'outline' : '9999px solid rgba(0,0,0,0.7)'
 			},
 			overlayCloseCSS: {
@@ -48,15 +49,18 @@
 			}
 		};
 
+		//extending settings with defaults and options from user
 		var settings = $.extend(true, {}, defaults, options);
-
 
 		//create overlay div to insert maps
 		createOverlay();
 
 	  	return this.each(function(index, element) {
-	  		createWrappers.call(this, index);
+	
+			//wrap element
+	  		$(this).wrap("<a href='#' class='mapit" + index + "'></a>");
 
+	  		//click listener
 	  		$(this).on('click', clickHandler);
 
 	  	});
@@ -72,6 +76,7 @@
 	  				$(this).parent().hide();
 	  		});
 
+	  		//initialize the Map
 	  		initMap(this);
 
 	  	}
@@ -79,10 +84,10 @@
 	  	function initMap(el) {
 	  		var latlng = $(el).data('latlng').split(","),
 	  			myLatlng = new google.maps.LatLng(parseInt(latlng[0]), parseInt(latlng[1])),
-	  			mapProp = null,
+	  			mapProps = null,
 	  			mapType;
 
-	  		switch (settings.mapOptions.mapTypeId.toLowerCase()) {
+	  		switch (settings.mapOptions.mapType.toLowerCase()) {
 	  			case 'satellite':
 	  				mapType = google.maps.MapTypeId.SATELLITE;
 	  				break;
@@ -96,24 +101,18 @@
 	  				mapType = google.maps.MapTypeId.ROADMAP;
 	  		}
 
-	  		mapProp = {
+	  		mapProps = {
 	  		  center: myLatlng,
 	  		  zoom: settings.mapOptions.zoom,
 	  		  mapTypeId: mapType
 	  		};
 
-	  		createMap(mapProp);
+	  		//create Map
+	  		var map = new google.maps.Map(document.getElementById(settings.mapContainerAttrs.id), mapProps);
 
 	  	}
 
-	  	function createMap(props) {
-	  		var map = new google.maps.Map(document.getElementById(settings.mapContainerAttrs.id), props);
-	  	}
-
-	  	function createWrappers(index) {
-	  		$(this).wrap("<a href='#' class='mapit" + index + "'></a>");
-	  	}
-
+	  	//creates Overlay and appends to document
 	  	function createOverlay(){
 
 			var overlay = $('<div />')
