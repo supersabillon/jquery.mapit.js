@@ -4,10 +4,39 @@
 	$.fn.mapit = function(options) {
 
 		var defaults = {
+			width: 400,
+			height: 300,
 			zoom: 12,
 			mapTypeId: 'google.maps.MapTypeId.ROADMAP',
 			overlayAttrs: {
 				id: 'mapit-overlay'
+			},
+			overlayCSS: {
+				'display': 'none',
+				'position' : 'fixed',
+				'left' : 50 + '%',
+				'top' : 50 + '%',
+				'margin-top' : '-' + 150 + 'px',
+				'margin-left' : '-' + 200 + 'px',
+				'z-index' : 10,
+				'outline' : '9999px solid rgba(0,0,0,0.7)'
+			},
+			overlayCloseCSS: {
+				'font-family' : 'Arial',
+				'position' : 'absolute',
+				'top' : '-' + 10 + 'px',
+				'right' : '-'  + 10 + 'px',
+				'display' : 'block',
+				'width' : 25 + 'px',
+				'line-height' : 26 + 'px',
+				'cursor' : 'pointer',
+				'background-color' : 'black',
+				'color' : '#fff',
+				'border' : '1px solid #fff',
+				'text-align' : 'center',
+				'border-radius' : 50 + '%',
+				'box-shadow' : '1px 1px 2px 0 rgba(0, 0, 0, 0.4)',
+				'z-index' : 1001
 			},
 			mapContainerAttrs: {
 				id: 'mapit-wrapper'
@@ -70,47 +99,22 @@
 
 	  	function createOverlay(){
 
-			  var overlay = $('<div />')
-			  	.attr(settings.overlayAttrs + index).css({
-		  			'display': 'none',
-		  			'position' : 'fixed',
-		  			'left' : 50 + '%',
-		  			'top' : 50 + '%',
-		  			'margin-top' : '-' + 150 + 'px',
-		  			'margin-left' : '-' + 200 + 'px',
-		  			'z-index' : 10,
-		  			'outline' : '9999px solid rgba(0,0,0,0.7)'
-		  		});
+			var overlay = $('<div />')
+				.attr(settings.overlayAttrs)
+				.css(settings.overlayCSS);
 
-			  var mapContainer = $('<div />')
-				  .attr(settings.mapContainerAttrs).css({
-		  			'width' : 400 + 'px',
-		  			'height' : 300 + 'px'
-		  		});
+			var mapContainer = $('<div />')
+				.attr(settings.mapContainerAttrs).css({
+					'width' : settings.width + 'px',
+					'height' : settings.height + 'px'
+				});
 
-				var close = $('<span />').css({
-	  			'font-family' : 'Arial',
-	  			'position' : 'absolute',
-	  			'top' : '-' + 10 + 'px',
-	  			'right' : '-'  + 10 + 'px',
-	  			'display' : 'block',
-	  			'width' : 25 + 'px',
-	  			'line-height' : 26 + 'px',
-	  			'cursor' : 'pointer',
-	  			'background-color' : 'black',
-	  			'color' : '#fff',
-	  			'border' : '1px solid #fff',
-	  			'text-align' : 'center',
-	  			'border-radius' : 50 + '%',
-	  			'box-shadow' : '1px 1px 2px 0 rgba(0, 0, 0, 0.4)',
-	  			'z-index' : 1001
-	  		})
-	  		.append(document.createTextNode("x"));
+			var close = $('<span />').css(settings.overlayCloseCSS)
+				.append(document.createTextNode("x"));
 
-	  		overlay.appendChild(close);
-	  		overlay.appendChild(mapContainer);
-	  		document.body.appendChild(overlay);
-
+			$(overlay).append(close);
+			$(overlay).append(mapContainer);
+			$("body").append(overlay);
 	  	}
 
 	}
