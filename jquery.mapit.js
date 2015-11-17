@@ -11,7 +11,7 @@
 			width: 400,
 			height: 300,
 			mapOptions: {
-				zoom: 5,
+				zoom: 8,
 				mapType: 'ROADMAP',
 			},
 			overlayAttrs: {
@@ -57,17 +57,12 @@
 
 	  	return this.each(function(index, element) {
 	
-			//wrap element
-	  		$(this).wrap("<a href='#' class='mapit" + index + "'></a>");
-
 	  		//click listener
 	  		$(this).on('click', clickHandler);
 
 	  	});
 
 	  	function clickHandler(e) {
-
-	  		var target = e.currentTarget.parentElement.className;
 
 	  		e.preventDefault();
 
