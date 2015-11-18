@@ -69,7 +69,7 @@
 
 	  		e.preventDefault();
 
-	  		$('#' + settings.overlayAttrs.id).show()
+	  		$('#' + settings.overlayAttrs.id).slideDown(100)
 	  			.find('span').on('click', function(){
 	  				$(this).parent().hide();
 	  		});
