@@ -25,6 +25,9 @@
 				'margin-top' : '-' + 150 + 'px',
 				'margin-left' : '-' + 200 + 'px',
 				'z-index' : 1000,
+				'border-style' : 'solid',
+				'border-width' : '1px',
+				'border-color' : '#000',
 				'outline' : '9999px solid rgba(0,0,0,0.7)'
 			},
 			overlayCloseCSS: {
