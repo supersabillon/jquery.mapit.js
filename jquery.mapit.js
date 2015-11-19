@@ -8,8 +8,8 @@
 
 		//defaults
 		var defaults = {
-			width: 400,
-			height: 300,
+			width: 500,
+			height: 400,
 			mapOptions: {
 				zoom: 8,
 				mapType: 'ROADMAP',
@@ -18,17 +18,10 @@
 				id: 'mapit-overlay'
 			},
 			overlayCSS: {
-				'display': 'none',
-				'position' : 'fixed',
-				'left' : 50 + '%',
-				'top' : 50 + '%',
-				'margin-top' : '-' + 150 + 'px',
-				'margin-left' : '-' + 200 + 'px',
-				'z-index' : 1000,
-				'border-style' : 'solid',
-				'border-width' : '1px',
-				'border-color' : '#000',
-				'outline' : '9999px solid rgba(0,0,0,0.7)'
+				zindex : 1000,
+				borderStyle : 'solid',
+				borderWidth : '1px',
+				borderColor: '#000',
 			},
 			overlayCloseCSS: {
 				'font-family' : 'Arial',
@@ -115,7 +108,19 @@
 
 			var overlay = $('<div />')
 				.attr(settings.overlayAttrs)
-				.css(settings.overlayCSS);
+				.css({
+				'display': 'none',
+				'position' : 'fixed',
+				'left' : 50 + '%',
+				'top' : 50 + '%',
+				'margin-top' : '-' + settings.height/2 + 'px',
+				'margin-left' : '-' + settings.width/2 + 'px',
+				'z-index' : settings.overlayCSS.zindex,
+				'border-style' : settings.overlayCSS.borderStyle,
+				'border-width' : settings.overlayCSS.borderWidth,
+				'border-color' : settings.overlayCSS.borderColor,
+				'outline' : '9999px solid rgba(0,0,0,0.7)'
+			});
 
 			var mapContainer = $('<div />')
 				.attr(settings.mapContainerAttrs).css({
