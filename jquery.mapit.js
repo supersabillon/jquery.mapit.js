@@ -42,7 +42,9 @@
 			},
 			mapContainerAttrs: {
 				id: 'mapit-wrapper'
-			}
+			},
+			onMapShow: function(){},
+			onMapClose: function(){}
 		};
 
 		//extending settings with defaults and options from user
@@ -52,7 +54,7 @@
 		createOverlay();
 
 	  	return this.each(function(index, element) {
-	
+
 	  		//click listener
 	  		$(this).on('click', clickHandler);
 
@@ -65,11 +67,15 @@
 	  		$('#' + settings.overlayAttrs.id).slideDown(100)
 	  			.find('span').on('click', function(){
 	  				$(this).parent().hide();
+	  				//onMapClose callback
+	  				settings.onMapClose.call(this);
 	  		});
 
 	  		//initialize the Map
 	  		initMap(this);
 
+	  		//onMapShow callback
+	  		settings.onMapShow.call(this);
 	  	}
 
 	  	function initMap(el) {
@@ -136,6 +142,6 @@
 			$("body").append(overlay);
 	  	}
 
-	}
+	};
 
 }(jQuery));
