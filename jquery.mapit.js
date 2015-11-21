@@ -54,13 +54,6 @@
 		//create overlay div to insert maps
 		createOverlay();
 
-	  	return this.each(function(index, element) {
-
-	  		//click listener
-	  		$(this).on('click', clickHandler);
-
-	  	});
-
 	  	function clickHandler(e) {
 
 	  		e.preventDefault();
@@ -138,10 +131,19 @@
 			var close = $('<span />').css(settings.overlayCloseCSS)
 				.append(document.createTextNode("x"));
 
-			$(overlay).append(close);
-			$(overlay).append(mapContainer);
+			$(overlay)
+				.append(close)
+				.append(mapContainer);
 			$("body").append(overlay);
 	  	}
+
+	  	
+	  	return this.each(function(index, element) {
+
+	  		//click listener
+	  		$(this).on('click', clickHandler);
+
+	  	});
 
 	};
 
