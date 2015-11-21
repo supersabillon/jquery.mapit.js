@@ -1,0 +1,25 @@
+{
+  "name": "jquery.mapit.js",
+  "homepage": "https://github.com/supersabillon/jquery.mapit.js",
+  "authors": [
+    "supersabillon <joel@sabillon.net>"
+  ],
+  "description": "jQuery Plugin that uses Latitute and Longitude to create Map overlay",
+  "main": "jquery.mapit.js",
+  "moduleType": [],
+  "keywords": [
+    "jquery",
+    "googlemaps",
+    "plugin",
+    "map",
+    "overlay"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
