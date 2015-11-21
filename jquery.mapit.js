@@ -22,6 +22,7 @@
 				borderStyle : 'solid',
 				borderWidth : '1px',
 				borderColor: '#000',
+				backgroundColor: 'rgba(0,0,0,0.7)'
 			},
 			overlayCloseCSS: {
 				'font-family' : 'Arial',
@@ -125,7 +126,7 @@
 				'border-style' : settings.overlayCSS.borderStyle,
 				'border-width' : settings.overlayCSS.borderWidth,
 				'border-color' : settings.overlayCSS.borderColor,
-				'outline' : '9999px solid rgba(0,0,0,0.7)'
+				'outline' : '9999px solid ' + settings.overlayCSS.backgroundColor
 			});
 
 			var mapContainer = $('<div />')
