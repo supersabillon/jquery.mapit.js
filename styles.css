@@ -3,7 +3,7 @@ body {
 	color: #fff;
 }
 
-h1 {
+h1, h2 {
 	font-size: 58px;
 	font-weight: 600;
 	margin-top: 0;
@@ -14,12 +14,32 @@ h1 span {
 	color: rgb(22, 160, 133);
 }
 
+h2 {
+	font-size: 48px;
+}
+
 p {
 	font-size: 18px;
 	margin-bottom: 20px;
 }
 
+pre {
+	margin-bottom: 35px;
+}
+
+.heading {
+	text-align: center;
+}
+
+.block {
+	padding: 60px 0 100px;
+
+}
+
 .main {
 	background-color: #2F4254;
-	padding: 60px 0 100px;
+}
+
+.usage {
+	background-color: rgb(52, 73, 94);
 }
