@@ -1,0 +1,25 @@
+body {
+	font-family: 'Lato', sans-serif;
+	color: #fff;
+}
+
+h1 {
+	font-size: 58px;
+	font-weight: 600;
+	margin-top: 0;
+	margin-bottom: 35px;
+}
+
+h1 span {
+	color: rgb(22, 160, 133);
+}
+
+p {
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+.main {
+	background-color: #2F4254;
+	padding: 60px 0 100px;
+}
