@@ -36,7 +36,13 @@
 				</div>
 				<div class="col-sm-6 col-sm-offset-3">
 					<p>Add <code>data-latlng="51.508742,-0.120850"</code> with a Latitude and Longitude value, separated by a comma, to any element.</p>
-			         <pre><code class="html">&lt;a id="map" class="btn btn-default" data-latlng='34.056047,-118.2593786' href="#" role="button"&gt;Cick here for map&lt;/a&gt;</code></pre>
+			         <pre><code class="html">&lt;a id="your-id" class="btn btn-default" data-latlng='34.056047,-118.2593786' href="#" role="button"&gt;Cick here for map&lt;/a&gt;</code></pre>
+				</div>
+				<div class="col-sm-6 col-sm-offset-3">
+					<p>Initialize your mapit in your script file or an inline script tag.</p>
+			         <pre><code class="js">$(document).ready(function(){
+ $('#your-id').mapit();
+});</code></pre>
 				</div>
 			</div>
 		</section>
