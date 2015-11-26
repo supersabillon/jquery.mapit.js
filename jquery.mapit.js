@@ -8,8 +8,6 @@
 
 		//defaults
 		var defaults = {
-			width: 500,
-			height: 400,
 			mapOptions: {
 				zoom: 8,
 				mapType: 'ROADMAP',
@@ -20,23 +18,25 @@
 			overlayCSS: {
 				zindex : 1000,
 				borderStyle : 'solid',
-				borderWidth : '1px',
+				borderWidth : 1,
 				borderColor: '#000',
-				backgroundColor : 'rgba(0,0,0,0.7)'
+				backgroundColor : 'rgba(0,0,0,0.7)',
+				width: 500,
+				height: 400
 			},
 			overlayCloseCSS: {
 				zindex : 1001,
-				top : '-10px',
-				right: '-10px',
-				width : '25px',
+				top : -10,
+				right: -10,
+				width : 25,
 				boxShadow : '1px 1px 2px 0 rgba(0, 0, 0, 0.4)',
 				borderRadius : '50%',
-				borderWidth: '1px',
-				borderColor: : '#fff',
+				borderWidth: 1,
+				borderColor: '#fff',
 				borderStyle : 'solid',
 				backgroundColor : '#000',
 				color : '#fff',
-				lineHeight : '26px',
+				lineHeight : 26,
 				fontFamily : 'Arial'
 
 			},
@@ -112,19 +112,19 @@
 				'position' : 'fixed',
 				'left' : 50 + '%',
 				'top' : 50 + '%',
-				'margin-top' : '-' + settings.height/2 + 'px',
-				'margin-left' : '-' + settings.width/2 + 'px',
+				'margin-top' : '-' + settings.overlayCSS.height/2 + 'px',
+				'margin-left' : '-' + settings.overlayCSS.width/2 + 'px',
 				'z-index' : settings.overlayCSS.zindex,
 				'border-style' : settings.overlayCSS.borderStyle,
-				'border-width' : settings.overlayCSS.borderWidth,
+				'border-width' : settings.overlayCSS.borderWidth + 'px',
 				'border-color' : settings.overlayCSS.borderColor,
 				'outline' : '9999px solid ' + settings.overlayCSS.backgroundColor
 			});
 
 			var mapContainer = $('<div />')
 				.attr(settings.mapContainerAttrs).css({
-					'width' : settings.width + 'px',
-					'height' : settings.height + 'px'
+					'width' : settings.overlayCSS.width + 'px',
+					'height' : settings.overlayCSS.height + 'px'
 				});
 
 			var close = $('<span />').css({
@@ -133,17 +133,17 @@
 				'cursor' : 'pointer',
 				'text-align' : 'center',
 				'font-family' : settings.overlayCloseCSS.fontFamily,
-				'line-height' : settings.overlayCloseCSS.lineHeight,
+				'line-height' : settings.overlayCloseCSS.lineHeight + 'px',
 				'background-color' : settings.overlayCloseCSS.backgroundColor,
 				'color' : settings.overlayCloseCSS.color,
-				'border-width' : settings.overlayCloseCSS.borderWidth,
+				'border-width' : settings.overlayCloseCSS.borderWidth + 'px',
 				'border-style' : settings.overlayCloseCSS.borderStyle,
 				'border-color' : settings.overlayCloseCSS.borderColor,
 				'border-radius' : settings.overlayCloseCSS.borderRadius,
 				'box-shadow' : settings.overlayCloseCSS.boxShadow,
-				'top' : settings.overlayCloseCSS.top,
-				'right' : settings.overlayCloseCSS.right,
-				'width' : settings.overlayCloseCSS.width,
+				'top' : settings.overlayCloseCSS.top + 'px',
+				'right' : settings.overlayCloseCSS.right + 'px',
+				'width' : settings.overlayCloseCSS.width + 'px',
 				'z-index' : settings.overlayCloseCSS.zindex
 			})
 				.append(document.createTextNode("x"));
