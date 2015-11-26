@@ -22,24 +22,23 @@
 				borderStyle : 'solid',
 				borderWidth : '1px',
 				borderColor: '#000',
-				backgroundColor: 'rgba(0,0,0,0.7)'
+				backgroundColor : 'rgba(0,0,0,0.7)'
 			},
 			overlayCloseCSS: {
-				'font-family' : 'Arial',
-				'position' : 'absolute',
-				'top' : '-' + 10 + 'px',
-				'right' : '-'  + 10 + 'px',
-				'display' : 'block',
-				'width' : 25 + 'px',
-				'line-height' : 26 + 'px',
-				'cursor' : 'pointer',
-				'background-color' : 'black',
-				'color' : '#fff',
-				'border' : '1px solid #fff',
-				'text-align' : 'center',
-				'border-radius' : 50 + '%',
-				'box-shadow' : '1px 1px 2px 0 rgba(0, 0, 0, 0.4)',
-				'z-index' : 1001
+				zindex : 1001,
+				top : '-10px',
+				right: '-10px',
+				width : '25px',
+				boxShadow : '1px 1px 2px 0 rgba(0, 0, 0, 0.4)',
+				borderRadius : '50%',
+				borderWidth: '1px',
+				borderColor: : '#fff',
+				borderStyle : 'solid',
+				backgroundColor : '#000',
+				color : '#fff',
+				lineHeight : '26px',
+				fontFamily : 'Arial'
+
 			},
 			mapContainerAttrs: {
 				id: 'mapit-wrapper'
@@ -128,7 +127,25 @@
 					'height' : settings.height + 'px'
 				});
 
-			var close = $('<span />').css(settings.overlayCloseCSS)
+			var close = $('<span />').css({
+				'position' : 'absolute',
+				'display' : 'block',
+				'cursor' : 'pointer',
+				'text-align' : 'center',
+				'font-family' : settings.overlayCloseCSS.fontFamily,
+				'line-height' : settings.overlayCloseCSS.lineHeight,
+				'background-color' : settings.overlayCloseCSS.backgroundColor,
+				'color' : settings.overlayCloseCSS.color,
+				'border-width' : settings.overlayCloseCSS.borderWidth,
+				'border-style' : settings.overlayCloseCSS.borderStyle,
+				'border-color' : settings.overlayCloseCSS.borderColor,
+				'border-radius' : settings.overlayCloseCSS.borderRadius,
+				'box-shadow' : settings.overlayCloseCSS.boxShadow,
+				'top' : settings.overlayCloseCSS.top,
+				'right' : settings.overlayCloseCSS.right,
+				'width' : settings.overlayCloseCSS.width,
+				'z-index' : settings.overlayCloseCSS.zindex
+			})
 				.append(document.createTextNode("x"));
 
 			$(overlay)
