@@ -40,6 +40,7 @@
 				fontFamily : 'Arial'
 
 			},
+			closeButtonCopy: 'x',
 			mapContainerAttrs: {
 				id: 'mapit-wrapper'
 			},
@@ -146,7 +147,7 @@
 				'width' : settings.overlayCloseCSS.width + 'px',
 				'z-index' : settings.overlayCloseCSS.zindex
 			})
-				.append(document.createTextNode("x"));
+				.append(document.createTextNode(settings.closeButtonCopy));
 
 			$(overlay)
 				.append(close)
