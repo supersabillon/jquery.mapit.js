@@ -29,6 +29,7 @@
 				top : -10,
 				right: -10,
 				width : 25,
+				height : 25,
 				boxShadow : '1px 1px 2px 0 rgba(0, 0, 0, 0.4)',
 				borderRadius : '50%',
 				borderWidth: 1,
@@ -36,7 +37,7 @@
 				borderStyle : 'solid',
 				backgroundColor : '#000',
 				color : '#fff',
-				lineHeight : 26,
+				lineHeight : 1,
 				fontFamily : 'Arial'
 
 			},
@@ -134,7 +135,7 @@
 				'cursor' : 'pointer',
 				'text-align' : 'center',
 				'font-family' : settings.overlayCloseCSS.fontFamily,
-				'line-height' : settings.overlayCloseCSS.lineHeight + 'px',
+				'line-height' : settings.overlayCloseCSS.lineHeight,
 				'background-color' : settings.overlayCloseCSS.backgroundColor,
 				'color' : settings.overlayCloseCSS.color,
 				'border-width' : settings.overlayCloseCSS.borderWidth + 'px',
@@ -145,6 +146,7 @@
 				'top' : settings.overlayCloseCSS.top + 'px',
 				'right' : settings.overlayCloseCSS.right + 'px',
 				'width' : settings.overlayCloseCSS.width + 'px',
+				'height' : settings.overlayCloseCSS.height + 'px',
 				'z-index' : settings.overlayCloseCSS.zindex
 			})
 				.append(document.createTextNode(settings.closeButtonCopy));
