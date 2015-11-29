@@ -58,7 +58,7 @@
 
 	  		e.preventDefault();
 
-	  		$('#' + settings.overlayAttrs.id).slideDown(100)
+	  		$('#' + settings.overlayAttrs.id).fadeIn(100)
 	  			.find('span').one('click', function(){
 	  				$(this).parent().hide();
 	  				//onMapClose callback
