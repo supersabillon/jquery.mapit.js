@@ -37,6 +37,7 @@
 				borderStyle : 'solid',
 				backgroundColor : '#000',
 				color : '#fff',
+				fontSize : 14,
 				lineHeight : 1,
 				fontFamily : 'Arial'
 
@@ -134,6 +135,7 @@
 				'display' : 'block',
 				'cursor' : 'pointer',
 				'text-align' : 'center',
+				'font-size' : settings.overlayCloseCSS.fontSize + 'px',
 				'font-family' : settings.overlayCloseCSS.fontFamily,
 				'line-height' : settings.overlayCloseCSS.lineHeight,
 				'background-color' : settings.overlayCloseCSS.backgroundColor,

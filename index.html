@@ -53,6 +53,199 @@
 			<div class="row">
 				<div class="col-sm-6 col-sm-offset-3">
 					<h2 class="heading">options</h2>
+					<h3>mapOptions</h3>
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Default</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>zoom</td>
+								<td>number</td>
+								<td>8</td>
+								<td>The zoom property specifies the zoom level for the map. zoom: 0 shows a map of the Earth fully zoomed out. Higher zoom levels zoom in at a higher resolution.</td>
+							</tr>
+							<tr>
+								<td>mapType</td>
+								<td>string</td>
+								<td>'roadmap'</td>
+								<td>The mapType property specifies the map type to display. The following map types are supported:
+									<ul>
+										<li><code>'roadmap'</code>: normal, default 2D map</li>
+										<li><code>'satellite'</code>: photographic map</li>
+										<li><code>'hybrid'</code>: photographic map + roads and city names</li>
+										<li><code>'terrain'</code>: map with mountains, rivers, etc.</li>
+									</ul>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h3>overlayCSS</h3>
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Default</th>
+								<th>Description</th>
+							</tr>
+	
+						</thead>
+						<tbody>
+							<tr>
+								<td>height</td>
+								<td>number</td>
+								<td>400</td>
+								<td>Height of the overlay, in pixels.</td>
+							</tr>
+							<tr>
+								<td>width</td>
+								<td>number</td>
+								<td>500</td>
+								<td>Width of the overlay, in pixels.</td>
+							</tr>
+							<tr>
+								<td>borderColor</td>
+								<td>string</td>
+								<td>'#000'</td>
+								<td>Color of border of overlay.</td>
+							</tr>
+							<tr>
+								<td>borderWidth</td>
+								<td>number</td>
+								<td>1</td>
+								<td>Width of border of overlay, in pixels.</td>
+							</tr>
+							<tr>
+								<td>borderStyle</td>
+								<td>string</td>
+								<td>'solid'</td>
+								<td>Style of border of overlay.</td>
+							</tr>
+							<tr>
+								<td>zindex</td>
+								<td>number</td>
+								<td>1000</td>
+								<td>Property to specify the stack order of the overlay.</td>
+							</tr>
+							<tr>
+								<td>backgroundColor</td>
+								<td>string</td>
+								<td>'rgba(0,0,0,0.7)'</td>
+								<td>Background color of the overlay which can include alpha transparency using rgba.</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h3>overlayCloseCSS</h3>
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Default</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>width</td>
+								<td>number</td>
+								<td>25</td>
+								<td>Width of close button, in pixels.</td>
+							</tr>
+							<tr>
+								<td>height</td>
+								<td>number</td>
+								<td>25</td>
+								<td>Height of close button, in pixels.</td>
+							</tr>
+							<tr>
+								<td>top</td>
+								<td>number</td>
+								<td>-10</td>
+								<td>Top property of close button.</td>
+							</tr>
+							<tr>
+								<td>right</td>
+								<td>number</td>
+								<td>-10</td>
+								<td>Right property of close button.</td>
+							</tr>
+							<tr>
+								<td>zindex</td>
+								<td>number</td>
+								<td>1001</td>
+								<td>Property to specify the stack order of the close button.</td>
+							</tr>
+							<tr>
+								<td>fontFamily</td>
+								<td>string</td>
+								<td>'Arial'</td>
+								<td>font-family property specifies the font for the close button.</td>
+							</tr>
+							<tr>
+								<td>fontSize</td>
+								<td>number</td>
+								<td>14</td>
+								<td>Font size to be used for text in close button.</td>
+							</tr>
+							<tr>
+								<td>lineHeight</td>
+								<td>number</td>
+								<td>1</td>
+								<td>A number that will be multiplied with the current font size to set the line height.</td>
+							</tr>
+							<tr>
+								<td>color</td>
+								<td>string</td>
+								<td>'#fff'</td>
+								<td>Color property for the close button.</td>
+							</tr>
+							<tr>
+								<td>backgroundColor</td>
+								<td>string</td>
+								<td>'#000'</td>
+								<td>Background color property for the close button.</td>
+							</tr>
+							<tr>
+								<td>borderColor</td>
+								<td>string</td>
+								<td>'#000'</td>
+								<td>Color of border of close button.</td>
+							</tr>
+							<tr>
+								<td>borderWidth</td>
+								<td>number</td>
+								<td>1</td>
+								<td>Width of border of close button, in pixels.</td>
+							</tr>
+							<tr>
+								<td>borderStyle</td>
+								<td>string</td>
+								<td>'solid'</td>
+								<td>Style of border of close button.</td>
+							</tr>
+							<tr>
+								<td>borderRadius</td>
+								<td>string</td>
+								<td>'50%'</td>
+								<td>Property adds rounded borders to close button</td>
+							</tr>
+							<tr>
+								<td>boxShadow</td>
+								<td>string</td>
+								<td>'1px 1px 2px 0 rgba(0, 0, 0, 0.4)'</td>
+								<td>box-shadow property attaches shadows to the close button.</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</section>
