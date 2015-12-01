@@ -159,7 +159,7 @@
 			$("body").append(overlay);
 	  	}
 
-	  	
+
 	  	return this.each(function(index, element) {
 
 	  		//click listener
