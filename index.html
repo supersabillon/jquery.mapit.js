@@ -319,6 +319,21 @@
 							</tr>
 						</tbody>
 					</table>
+										<h4>Example</h4>
+							         	<pre><code class="js">$('#your-id').mapit({
+ overlayAttrs: {
+  id: 'my-id',
+  class: 'my-class',
+  alt: 'my-alt'
+ },
+ closeButtonCopy: 'close',
+ onMapShow: function(){
+  console.log('Map is showing');
+ },
+ onMapClose: function(){
+  console.log('Map is closed');
+ }
+});</code></pre>
 				</div>
 			</div>
 		</section>
