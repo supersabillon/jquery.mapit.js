@@ -31,6 +31,14 @@ th {
 	font-weight: bold;
 }
 
+nav {
+	padding: 30px 0;
+}
+
+nav a {
+	font-size: 16px;
+}
+
 .heading {
 	text-align: center;
 }
