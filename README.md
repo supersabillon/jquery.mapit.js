@@ -1,2 +1,3 @@
 # jquery.mapit.js
-In progress: Jquery Plugin that reads address and creates a map
+A simple jQuery plugin that uses Latitute and Longitude to create a Google Map overlay.
+
