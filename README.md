@@ -16,9 +16,7 @@ bower install --save jquery.mapit.js
 <a id="your-id" data-latlng='34.056047,-118.2593786' href="#" role="button">Map of Los Angeles</a>
 
 <script>
-$(document).ready(function(){
  $('#your-id').mapit();
-});
 </script>
 ````
 
