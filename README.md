@@ -13,7 +13,7 @@ bower install --save jquery.mapit.js
 
 ### Usage
 ````
-<a id="your-id" data-latlng='34.056047,-118.2593786' href="#" role="button">Map of Los Angeles</a>
+<a id="your-id" data-latlng='34.056047,-118.2593786' href="#">Map of Los Angeles</a>
 
 <script>
  $('#your-id').mapit();
