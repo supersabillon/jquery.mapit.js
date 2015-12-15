@@ -7,7 +7,10 @@ A simple jQuery plugin that uses Latitute and Longitude to create a Google Map o
 ### Package Managers
 ````
 //Bower
-bower install --save jquery.mapit.js
+bower install jquery.mapit.js --save
+
+//npm
+npm install jquery.mapit.js --save
 
 ````
 
