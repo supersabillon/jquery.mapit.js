@@ -1,0 +1,28 @@
+{
+  "name": "jquery.mapit.js",
+  "version": "1.0.0",
+  "description": "A simple jQuery plugin that uses Latitude and Longitude to create a Google Map overlay.",
+  "main": "jquery.mapit.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supersabillon/jquery.mapit.js.git"
+  },
+  "keywords": [
+    "jquery",
+    "googlemaps",
+    "plugin",
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "google-maps",
+    "overlay"
+  ],
+  "author": "Joel Sabillon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/supersabillon/jquery.mapit.js/issues"
+  },
+  "homepage": "http://sabillon.net/jquery.mapit.js/"
+}
