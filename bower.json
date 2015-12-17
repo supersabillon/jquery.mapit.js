@@ -5,7 +5,7 @@
     "supersabillon <joel@sabillon.net>"
   ],
   "description": "jQuery Plugin that uses Latitute and Longitude to create Map overlay",
-  "main": "jquery.mapit.js",
+  "main": "jquery.mapit.min.js",
   "moduleType": [],
   "keywords": [
     "jquery",
