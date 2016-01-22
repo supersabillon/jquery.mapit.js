@@ -103,6 +103,12 @@
 	  		//create Map
 	  		var map = new google.maps.Map(document.getElementById(settings.mapContainerAttrs.id), mapProps);
 
+				var marker = new google.maps.Marker({
+				  position:myCenter,
+				});
+
+				marker.setMap(map);
+
 	  	}
 
 	  	//creates Overlay and appends to document
