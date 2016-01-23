@@ -104,7 +104,7 @@
 	  		var map = new google.maps.Map(document.getElementById(settings.mapContainerAttrs.id), mapProps);
 
 				var marker = new google.maps.Marker({
-				  position:myCenter,
+				  position: myLatlng,
 				});
 
 				marker.setMap(map);
