@@ -11,6 +11,7 @@
 			mapOptions: {
 				zoom: 8,
 				mapType: 'ROADMAP',
+				marker: true
 			},
 			overlayAttrs: {
 				id: 'mapit-overlay'
@@ -103,11 +104,13 @@
 	  		//create Map
 	  		var map = new google.maps.Map(document.getElementById(settings.mapContainerAttrs.id), mapProps);
 
-				var marker = new google.maps.Marker({
-				  position: myLatlng,
-				});
+        if(settings.mapOptions.marker) {
+  				var marker = new google.maps.Marker({
+  				  position: myLatlng,
+  				});
 
-				marker.setMap(map);
+  				marker.setMap(map);
+        }
 
 	  	}
 
