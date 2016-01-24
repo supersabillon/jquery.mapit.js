@@ -76,7 +76,7 @@
 
 	  	function initMap(el) {
 	  		var latlng = $(el).data('latlng').split(","),
-	  			myLatlng = new google.maps.LatLng(parseInt(latlng[0]), parseInt(latlng[1])),
+	  			myLatlng = new google.maps.LatLng(parseFloat(latlng[0]), parseFloat(latlng[1])),
 	  			mapProps = null,
 	  			mapType;
 
