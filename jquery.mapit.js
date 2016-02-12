@@ -43,7 +43,7 @@
 				fontFamily : 'Arial'
 
 			},
-			closeButtonCopy: 'x',
+			closeButtonCopy: '&times;',
 			mapContainerAttrs: {
 				id: 'mapit-wrapper'
 			},
