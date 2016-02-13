@@ -38,7 +38,7 @@
 				borderStyle : 'solid',
 				backgroundColor : '#000',
 				color : '#fff',
-				fontSize : 14,
+				fontSize : 18,
 				lineHeight : 1.5,
 				fontFamily : 'Arial'
 
