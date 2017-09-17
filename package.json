@@ -4,7 +4,8 @@
   "description": "A simple jQuery plugin that uses Latitude and Longitude to create a Google Map overlay.",
   "main": "jquery.mapit.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack src/jquery.mapit.js dist/jquery.mapit.min.js -p"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/supersabillon/jquery.mapit.js/issues"
   },
-  "homepage": "http://sabillon.net/jquery.mapit.js/"
+  "homepage": "http://sabillon.net/jquery.mapit.js/",
+  "devDependencies": {
+    "webpack": "^3.6.0"
+  }
 }
